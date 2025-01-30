@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.testng.annotations.Test;
 
 public class NonBDDStylePost {
 
@@ -17,7 +18,8 @@ public class NonBDDStylePost {
 //        }
         // HEARDERS -> Content-Type = application/json
 
-        public static void main(String[] args) {
+        @Test
+        public void test_post_nonbdd() {
             // Payload -> String (1%), Hashmap (4%), Classes (95%)
             String payload = "{\n" +
                     "            \"username\" : \"admin\",\n" +

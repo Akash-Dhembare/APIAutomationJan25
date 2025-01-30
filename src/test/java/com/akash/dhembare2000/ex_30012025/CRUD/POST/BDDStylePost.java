@@ -2,6 +2,7 @@ package com.akash.dhembare2000.ex_30012025.CRUD.POST;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.testng.annotations.Test;
 
 public class BDDStylePost {
 
@@ -14,7 +15,9 @@ public class BDDStylePost {
 //        }
         // HEARDERS -> Content-Type = application/json
 
-        public static void main(String[] args) {
+
+        @Test
+        public void test_post_bdd() {
             // Payload -> String (1%), Hashmap (4%), Classes (95%)
             String payload = "{\n" +
                     "            \"username\" : \"admin\",\n" +
