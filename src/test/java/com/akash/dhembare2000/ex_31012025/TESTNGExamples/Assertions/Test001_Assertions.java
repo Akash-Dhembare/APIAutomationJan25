@@ -8,6 +8,8 @@ import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
+import static org.assertj.core.api.Assertions.*;
+
 public class Test001_Assertions {
 
     RequestSpecification requestSpecification;
@@ -53,11 +55,19 @@ public class Test001_Assertions {
         validatableResponse.body("booking.lastname",Matchers.equalTo("Dhembare"));
         validatableResponse.body("booking.depositpaid", Matchers.equalTo(true));
 
+        bookingID = response.then().extract().path("bookingid");
+        String firstname=response.then().extract().path("booking.firstname");
+
         // TestNG - Soft Assertions vs Hard Assertions
         // Soft Assertions - This means even if any assertion fails, the remaining statements in that test method will be executed.
         // Hard Assertions - This means that if any assertion fails, the remaining statements in that test method will not be executed.
 
         // AsserJ -> Third Party Library
+        assertThat(bookingID).isNotNull().isNotZero().isPositive();
+        assertThat(firstname).isNotEmpty().isEqualTo("Akash").isNotBlank();
+        String s= ""; // Empty
+        String s2= " "; // Blank
+
 
 
     }
